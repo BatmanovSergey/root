@@ -1,28 +1,14 @@
+import model as m
 
-def check_name():
-    l_n = input('Введите фамилию и инициалы нового сотрудника: ')
-    if l_n != ' ' or not l_n.isdigit():
-        return l_n 
-    else:
-        print('Введены не корректные данные!')
-        check_name() 
+def check_type_num(data):
+    if data.isdigit():
+        return int(data)
+    return -1
 
-def check_bus():
-    b = input('Введите госномер автобуса: ')
-    if b == '':
-        return "None"
-    else:
-        return b
-            
-def check_route():
-    r = input('Введите номер маршрута: ')
-    if r.isdigit():
-        return r
-    elif r == '':
-        return "None"
-    else:
-        print('Введены не корректные данные!')
-        check_route()
+# проверка существования id
+def check_id_exist(file, m_id):
+    list_all_person = m.read_file(file)
+    return m_id != -1 and m_id in range(len(list_all_person))
 
 def check_id():
     id_n = input('Введите id_сотрудника для удаления из базы данных: ')
