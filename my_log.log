@@ -81,3 +81,11 @@
 27-01-2023 08:35:10 - user_interface - ERROR - menu - Error: wrong main menu selection
 27-01-2023 08:35:19 - user_interface - ERROR - menu - Error: incorrect id entered.
 27-01-2023 08:35:31 - user_interface - ERROR - menu - Error: wrong main menu selection
+27-01-2023 17:41:03 - user_interface - INFO - menu - Start program
+27-01-2023 17:41:13 - user_interface - INFO - menu - Stop program
+27-01-2023 17:51:49 - user_interface - INFO - menu - Start program
+27-01-2023 17:58:29 - user_interface - ERROR - menu - Error: wrong main menu selection
+27-01-2023 17:58:45 - user_interface - INFO - menu - Start program
+27-01-2023 17:59:56 - user_interface - ERROR - menu - Error: wrong main menu selection
+27-01-2023 18:01:37 - user_interface - ERROR - menu - Error: wrong main menu selection
+27-01-2023 18:01:48 - user_interface - INFO - menu - Start program

@@ -20,13 +20,15 @@ def menu():
             print("Error. Try again")
             continue
 
-        elif type_num == 1:  # показать все записи  ----------------- ошибка!!
+        elif type_num == 1:  # показать все записи
+            print('Информация по всем членам команды корабля "ПЕРШЕРОН"')
             m.get_table('Team.csv')
             print('Вы будете перемещены в главное меню.')
 
         elif type_num == 2:  # найти запись
             d = (input('Введите данные для поиска: '))
             m.find_info('Team.csv', d)
+            print('Вы будете перемещены в главное меню.')
 
         elif type_num == 3:  # добавить запись
             print('Добавление новой записи...')
@@ -46,7 +48,7 @@ def menu():
                             '0 - Вернуться в главное меню \n')
                 num = check_in.check_type_num(num)
                 if num in range(1, 6):
-                    m.change_info2('Team.csv', man_id, num)
+                    m.change_info('Team.csv', man_id, num)
                     print('Вы будете перемещены в главное меню.')
                 elif num == 0:
                     menu()
@@ -57,6 +59,7 @@ def menu():
             else:
                 logging.error('Error: incorrect id entered.')
                 print('id does not exist. Check right id one more time.')
+            print('Вы будете перемещены в главное меню.')
 
         elif type_num == 5:  # удалить запись
             man_id = input('\nВведите id сотрудника, данные которого вы хотите изменить:\n')
