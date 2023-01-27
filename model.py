@@ -68,7 +68,7 @@ def find_info(file, data):
 # дозапись
 def add_text(file):
     list_all_person = read_file(file)
-    id = len(list_all_person)
+    id = len(list_all_person) + 1
     first_name = input('Введите фамилию: ')
     last_name = input('Введите имя: ')
     post = input('Введите должность: ')
