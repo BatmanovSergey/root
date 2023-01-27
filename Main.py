@@ -1,4 +1,3 @@
-from logger import logging
-import controller as c
+import user_interface as ui
 
-c.button_click()
+ui.menu()
