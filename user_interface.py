@@ -66,8 +66,19 @@ def menu():
         elif type_num == 5:  # удалить запись
             man_id = input('\nВведите id сотрудника, данные которого вы хотите удалить:\n')
             man_id = check_in.check_type_num(man_id)
-            if check_in.check_id_exist('Team.csv', man_id):
-                m.delete_info('Team.csv', man_id)
+            if man_id == -1:
+                logging.error('Error: incorrect id entered.')
+                print('id does not exist. Check right id one more time.')
+                print('Вы будете перемещены в главное меню.')
+            else:   
+                r_man_id = m.check_id_exist('Team.csv', man_id)
+                if r_man_id == -1:
+                    logging.error('Error: incorrect id entered.')
+                    print('id does not exist. Check right id one more time.')
+                    print('Вы будете перемещены в главное меню.')
+                
+                else:
+                    m.delete_info('Team.csv', man_id)
             print('Вы будете перемещены в главное меню.')
 
         elif type_num == 0:  # выход

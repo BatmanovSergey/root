@@ -68,7 +68,7 @@ def find_info(file, data):
 # дозапись
 def add_text(file):
     list_all_person = read_file(file)
-    id = len(list_all_person) + 1
+    id = str(int(list_all_person[-1][0]) + 1)
     first_name = input('Введите фамилию: ')
     last_name = input('Введите имя: ')
     post = input('Введите должность: ')
@@ -128,7 +128,6 @@ def change_info(file, m_id, op):
 # удаление
 def delete_info(file, m_id):
     list_all_person = read_file(file)
-    print(list_all_person)
     for i in range(1,len(list_all_person)-1):
         if list_all_person[i][0] == str(m_id):
             list_all_person.pop(i)
@@ -144,3 +143,12 @@ def delete_info(file, m_id):
     print('Данные успешно удалены!')        
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')        
     get_table('Team.csv')
+
+# проверка существования id
+def check_id_exist(file, m_id):
+    list_all_person = read_file(file)
+    for i in range(1, len(list_all_person)):
+        if list_all_person[i][0] == m_id:
+            return m_id
+        else: 
+            return -1
