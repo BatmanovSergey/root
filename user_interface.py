@@ -4,6 +4,8 @@ import check_in
 from prettytable import PrettyTable
 
 def menu():
+    print()
+    print('Информационая система корабля "ПЕРШЕРОН" привествует Вас!')
     logging.info('Start program')
     while True:
         type_num = input('\n*****Главное меню*****\nВыберите пункт меню:\n'
@@ -70,6 +72,8 @@ def menu():
 
         elif type_num == 0:  # выход
             logging.info("Stop program")
-            print("Goodbye! See you soon!")
+            print('Спасибо, что воспользовались нашей информационной системой.\n'
+            'Корабля корабля желаем Вам всего наилучшего.\n'
+            'До встречи на просторах бескрайней Галактики!!!')
             break
 
