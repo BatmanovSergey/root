@@ -1,2 +1,2 @@
 
-* instructions for configuring the virtual environment
+# instructions for configuring the virtual environment
