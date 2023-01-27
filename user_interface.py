@@ -64,7 +64,7 @@ def menu():
             print('Вы будете перемещены в главное меню.')
 
         elif type_num == 5:  # удалить запись
-            man_id = input('\nВведите id сотрудника, данные которого вы хотите изменить:\n')
+            man_id = input('\nВведите id сотрудника, данные которого вы хотите удалить:\n')
             man_id = check_in.check_type_num(man_id)
             if check_in.check_id_exist('Team.csv', man_id):
                 m.delete_info('Team.csv', man_id)
