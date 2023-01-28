@@ -3,6 +3,10 @@ import csv
 from logger import logging
 from prettytable import PrettyTable
 import sys
+def last_id():
+    with open('last_id.txt', 'r', encoding='utf-8') as l_f:
+        last_id = l_f.read()
+        return last_id
 # дозапись  
 def write_file(file, data):
         with open(file, 'a', encoding='utf-8') as t_file:  
@@ -67,8 +71,12 @@ def find_info(file, data):
 
 # дозапись
 def add_text(file):
-    list_all_person = read_file(file)
-    id = str(int(list_all_person[-1][0]) + 1)
+    # list_all_person = read_file(file)
+    id = last_id()
+    id = int(id) + 1
+    id_w = str(id)
+    with open('last_id.txt','w', encoding='utf-8') as l_f:
+        l_f.write(id_w)
     first_name = input('Введите имя: ')
     last_name = input('Введите фамилию: ')
     post = input('Введите должность: ')
@@ -134,6 +142,7 @@ def delete_info(file, m_id):
     for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             list_all_person.pop(i)
+            
             # for j in range(i,len(list_all_person)):
             #     ind = int(list_all_person[j][0])
             #     ind -= 1
@@ -150,6 +159,7 @@ def delete_info(file, m_id):
             'корабля. Желаем Вам всего наилучшего.\n'
             'До встречи на просторах бескрайней Галактики!!!')
     sys.exit()
+
 
 # # проверка существования id
 # def check_id_exist(file, m_id):
