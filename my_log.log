@@ -256,3 +256,20 @@
 28-01-2023 16:34:21 - user_interface - INFO - menu - Start program
 28-01-2023 16:34:33 - user_interface - INFO - menu - Start program
 28-01-2023 16:34:49 - user_interface - INFO - menu - Start program
+28-01-2023 16:35:50 - user_interface - INFO - menu - Start program
+28-01-2023 16:35:56 - user_interface - ERROR - menu - Error: incorrect id entered.
+28-01-2023 17:04:40 - user_interface - ERROR - menu - Error: wrong main menu selection
+28-01-2023 17:04:49 - user_interface - INFO - menu - Stop program
+28-01-2023 17:04:51 - user_interface - INFO - menu - Start program
+28-01-2023 17:14:39 - user_interface - INFO - menu - Start program
+28-01-2023 17:14:45 - user_interface - ERROR - menu - Error: wrong main menu selection
+28-01-2023 17:15:44 - user_interface - INFO - menu - Start program
+28-01-2023 17:15:55 - user_interface - ERROR - menu - Error: incorrect id entered.
+28-01-2023 17:16:23 - user_interface - INFO - menu - Start program
+28-01-2023 17:17:15 - user_interface - INFO - menu - Start program
+28-01-2023 17:18:21 - user_interface - INFO - menu - Start program
+28-01-2023 17:18:29 - user_interface - INFO - menu - Start program
+28-01-2023 17:18:58 - user_interface - INFO - menu - Start program
+28-01-2023 17:19:41 - user_interface - INFO - menu - Start program
+28-01-2023 17:20:15 - user_interface - INFO - menu - Start program
+28-01-2023 17:20:29 - user_interface - INFO - menu - Start program
