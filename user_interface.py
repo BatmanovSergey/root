@@ -38,47 +38,54 @@ def menu():
             print('Вы будете перемещены в главное меню.')
 
         elif type_num == 4:  # редактировать запись
-            man_id = input('Введите id сотрудника, данные которого вы хотите изменить:\n')
-            man_id = check_in.check_type_num(man_id)
-            if check_in.check_id_exist('Team.csv', man_id):
-                num = input('\nКакие изменения вы хотите внести:\n'
-                            '1 - Изменить фамилию\n'
-                            '2 - Изменить имя\n'
-                            '3 - Изменить должность\n'
-                            '4 - Изменить год рождения\n'
-                            '5 - Изменить все данные\n'
-                            '0 - Вернуться в главное меню \n')
-                num = check_in.check_type_num(num)
-                if num in range(1, 6):
-                    m.change_info('Team.csv', man_id, num)
-                    print('Вы будете перемещены в главное меню.')
-                elif num == 0:
-                    menu()
-                else:
-                    logging.error('Error: wrong submenu selection')
-                    print("Error. Try again")
-                    continue
-            else:
-                logging.error('Error: incorrect id entered.')
-                print('id does not exist. Check right id one more time.')
-            print('Вы будете перемещены в главное меню.')
-
-        elif type_num == 5:  # удалить запись
-            man_id = input('\nВведите id сотрудника, данные которого вы хотите удалить:\n')
-            man_id = check_in.check_type_num(man_id)
+            man_id = input('Введите id сотрудника, данные которого вы хотите изменить:\n') #stroka
+            man_id = check_in.check_type_num(man_id)#int
             if man_id == -1:
                 logging.error('Error: incorrect id entered.')
                 print('id does not exist. Check right id one more time.')
-                print('Вы будете перемещены в главное меню.')
-            else:   
-                r_man_id = m.check_id_exist('Team.csv', man_id)
+            else:  
+                r_man_id = check_in.check_id_exist('Team.csv', man_id)#peredaem int,prinimaem int
                 if r_man_id == -1:
                     logging.error('Error: incorrect id entered.')
-                    print('id does not exist. Check right id one more time.')
-                    print('Вы будете перемещены в главное меню.')
+                    print('id does not exist. Check right id.')
+                else:
+                    num = input('\nКакие изменения вы хотите внести:\n' #stroka
+                                '1 - Изменить фамилию\n'
+                                '2 - Изменить имя\n'
+                                '3 - Изменить должность\n'
+                                '4 - Изменить год рождения\n'
+                                '5 - Изменить все данные\n'
+                                '0 - Вернуться в главное меню \n')
+                    num = check_in.check_type_num(num) #int
+                    if num in range(1, 6):
+                        m.change_info('Team.csv', man_id, num)
+                        print('Вы будете перемещены в главное меню.')
+                    elif num == 0:
+                        menu()
+                    else:
+                        logging.error('Error: wrong submenu selection')
+                        print("Error. Try again")
+                        continue
+            
+
+        elif type_num == 5:  # удалить запись
+            man_id = input('Введите id сотрудника, данные которого вы хотите удалить:\n')
+            man_id = check_in.check_type_num(man_id)#int
+           
+            if man_id == -1:
+                logging.error('Error: incorrect id entered.')
+                print('id does not exist. Enter right id.')
+                # print('Вы будете перемещены в главное меню.')
+            else:   
+                r_man_id = check_in.check_id_exist('Team.csv', man_id)#peredaem int,prinimaem int
+                # print(r_man_id)
+                if r_man_id == -1:
+                    logging.error('Error: incorrect id entered.')
+                    print('id does not exist. Check right id.')
+                    # print('Вы будете перемещены в главное меню.')
                 
                 else:
-                    m.delete_info('Team.csv', man_id)
+                    m.delete_info('Team.csv', r_man_id)
             print('Вы будете перемещены в главное меню.')
 
         elif type_num == 0:  # выход

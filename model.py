@@ -87,7 +87,7 @@ def add_text(file):
 # замена
 def change_info(file, m_id, op):
     list_all_person = read_file(file)
-    for i in range(1,len(list_all_person)-1):
+    for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             if op == 1:
                 list_all_person[i][1] = input('Введите новую фамилию: ')
@@ -128,7 +128,7 @@ def change_info(file, m_id, op):
 # удаление
 def delete_info(file, m_id):
     list_all_person = read_file(file)
-    for i in range(1,len(list_all_person)-1):
+    for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             list_all_person.pop(i)
             # for j in range(i,len(list_all_person)):
@@ -144,11 +144,11 @@ def delete_info(file, m_id):
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')        
     get_table('Team.csv')
 
-# проверка существования id
-def check_id_exist(file, m_id):
-    list_all_person = read_file(file)
-    for i in range(1, len(list_all_person)):
-        if list_all_person[i][0] == m_id:
-            return m_id
-        else: 
-            return -1
+# # проверка существования id
+# def check_id_exist(file, m_id):
+#     list_all_person = read_file(file)
+#     for i in range(1, len(list_all_person)):
+#         if list_all_person[i][0] == m_id:
+#             return m_id
+#         else: 
+#             return -1
