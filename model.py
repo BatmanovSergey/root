@@ -2,7 +2,11 @@ from os import path
 import csv 
 from logger import logging
 from prettytable import PrettyTable
-
+import sys
+def last_id():
+    with open('last_id.txt', 'r', encoding='utf-8') as l_f:
+        last_id = l_f.read()
+        return last_id
 # дозапись  
 def write_file(file, data):
         with open(file, 'a', encoding='utf-8') as t_file:  
@@ -67,10 +71,14 @@ def find_info(file, data):
 
 # дозапись
 def add_text(file):
-    list_all_person = read_file(file)
-    id = len(list_all_person) + 1
-    first_name = input('Введите фамилию: ')
-    last_name = input('Введите имя: ')
+    # list_all_person = read_file(file)
+    id = last_id()
+    id = int(id) + 1
+    id_w = str(id)
+    with open('last_id.txt','w', encoding='utf-8') as l_f:
+        l_f.write(id_w)
+    first_name = input('Введите имя: ')
+    last_name = input('Введите фамилию: ')
     post = input('Введите должность: ')
     while True:
         try:
@@ -83,16 +91,19 @@ def add_text(file):
     print('Данные успешно добавлены!')
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')
     get_table('Team.csv')
-
+    print('Спасибо, что воспользовались нашей информационной системой\n'
+            'корабля. Желаем Вам всего наилучшего.\n'
+            'До встречи на просторах бескрайней Галактики!!!')
+    sys.exit()
 # замена
 def change_info(file, m_id, op):
     list_all_person = read_file(file)
-    for i in range(1,len(list_all_person)-1):
+    for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             if op == 1:
-                list_all_person[i][1] = input('Введите новую фамилию: ')
+                list_all_person[i][1] = input('Введите новое имя: ')
             elif op == 2:
-                list_all_person[i][2] = input('Введите новое имя: ')
+                list_all_person[i][2] = input('Введите новую фамилию: ')
             elif op == 3:
                 list_all_person[i][3] = input('Введите новую должность: ')
             elif op == 4:
@@ -104,8 +115,8 @@ def change_info(file, m_id, op):
                     except Exception as e:
                         print('Error: Для ввода используйте числа.')                       
             elif op == 5:
-                list_all_person[i][1] = input('Введите новую фамилию: ')
-                list_all_person[i][2] = input('Введите новое имя: ')
+                list_all_person[i][1] = input('Введите новую имя: ')
+                list_all_person[i][2] = input('Введите новое фамилию: ')
                 list_all_person[i][3] = input('Введите новую должность: ')
                 year_of_birth = input('Введите новый год рождения: ')
                 while True:
@@ -128,10 +139,10 @@ def change_info(file, m_id, op):
 # удаление
 def delete_info(file, m_id):
     list_all_person = read_file(file)
-    print(list_all_person)
-    for i in range(1,len(list_all_person)-1):
+    for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             list_all_person.pop(i)
+            
             # for j in range(i,len(list_all_person)):
             #     ind = int(list_all_person[j][0])
             #     ind -= 1
@@ -144,3 +155,17 @@ def delete_info(file, m_id):
     print('Данные успешно удалены!')        
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')        
     get_table('Team.csv')
+    print('Спасибо, что воспользовались нашей информационной системой\n'
+            'корабля. Желаем Вам всего наилучшего.\n'
+            'До встречи на просторах бескрайней Галактики!!!')
+    sys.exit()
+
+
+# # проверка существования id
+# def check_id_exist(file, m_id):
+#     list_all_person = read_file(file)
+#     for i in range(1, len(list_all_person)):
+#         if list_all_person[i][0] == m_id:
+#             return m_id
+#         else: 
+#             return -1
