@@ -139,10 +139,10 @@ def change_info(file, m_id, op):
 # удаление
 def delete_info(file, m_id):
     list_all_person = read_file(file)
-    for i in range(1,len(list_all_person)):
+    for i in range(1, len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             list_all_person.pop(i)
-            
+            break
             # for j in range(i,len(list_all_person)):
             #     ind = int(list_all_person[j][0])
             #     ind -= 1
