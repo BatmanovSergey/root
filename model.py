@@ -2,7 +2,7 @@ from os import path
 import csv 
 from logger import logging
 from prettytable import PrettyTable
-
+import sys
 # дозапись  
 def write_file(file, data):
         with open(file, 'a', encoding='utf-8') as t_file:  
@@ -69,8 +69,8 @@ def find_info(file, data):
 def add_text(file):
     list_all_person = read_file(file)
     id = str(int(list_all_person[-1][0]) + 1)
-    first_name = input('Введите фамилию: ')
-    last_name = input('Введите имя: ')
+    first_name = input('Введите имя: ')
+    last_name = input('Введите фамилию: ')
     post = input('Введите должность: ')
     while True:
         try:
@@ -83,16 +83,19 @@ def add_text(file):
     print('Данные успешно добавлены!')
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')
     get_table('Team.csv')
-
+    print('Спасибо, что воспользовались нашей информационной системой\n'
+            'корабля. Желаем Вам всего наилучшего.\n'
+            'До встречи на просторах бескрайней Галактики!!!')
+    sys.exit()
 # замена
 def change_info(file, m_id, op):
     list_all_person = read_file(file)
     for i in range(1,len(list_all_person)):
         if list_all_person[i][0] == str(m_id):
             if op == 1:
-                list_all_person[i][1] = input('Введите новую фамилию: ')
+                list_all_person[i][1] = input('Введите новое имя: ')
             elif op == 2:
-                list_all_person[i][2] = input('Введите новое имя: ')
+                list_all_person[i][2] = input('Введите новую фамилию: ')
             elif op == 3:
                 list_all_person[i][3] = input('Введите новую должность: ')
             elif op == 4:
@@ -104,8 +107,8 @@ def change_info(file, m_id, op):
                     except Exception as e:
                         print('Error: Для ввода используйте числа.')                       
             elif op == 5:
-                list_all_person[i][1] = input('Введите новую фамилию: ')
-                list_all_person[i][2] = input('Введите новое имя: ')
+                list_all_person[i][1] = input('Введите новую имя: ')
+                list_all_person[i][2] = input('Введите новое фамилию: ')
                 list_all_person[i][3] = input('Введите новую должность: ')
                 year_of_birth = input('Введите новый год рождения: ')
                 while True:
@@ -143,6 +146,10 @@ def delete_info(file, m_id):
     print('Данные успешно удалены!')        
     print('Обновлённый список команды корабля "ПЕРШЕРОН"')        
     get_table('Team.csv')
+    print('Спасибо, что воспользовались нашей информационной системой\n'
+            'корабля. Желаем Вам всего наилучшего.\n'
+            'До встречи на просторах бескрайней Галактики!!!')
+    sys.exit()
 
 # # проверка существования id
 # def check_id_exist(file, m_id):

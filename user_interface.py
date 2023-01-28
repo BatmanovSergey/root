@@ -54,14 +54,11 @@ def menu():
                                 '2 - Изменить имя\n'
                                 '3 - Изменить должность\n'
                                 '4 - Изменить год рождения\n'
-                                '5 - Изменить все данные\n'
-                                '0 - Вернуться в главное меню \n')
+                                '5 - Изменить все данные\n')
                     num = check_in.check_type_num(num) #int
                     if num in range(1, 6):
                         m.change_info('Team.csv', man_id, num)
                         print('Вы будете перемещены в главное меню.')
-                    elif num == 0:
-                        menu()
                     else:
                         logging.error('Error: wrong submenu selection')
                         print("Error. Try again")
